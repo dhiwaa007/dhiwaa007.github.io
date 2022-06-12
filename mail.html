@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static webpage</title>
+    <style>
+        *{
+            padding: 0;
+            
+            box-sizing:content-box;
+        }
+        body{
+            background-image: linear-gradient(to right,rgb(129, 219, 159), white);
+            
+            background-size:cover;
+            
+        }
+
+        .login{
+           
+            text-align: center;
+            width: 25%;
+            height: 30%;
+            padding: 25px;
+            margin-left: auto;
+            margin-right:auto;
+            margin-top: 10%;
+            color: black;
+            font-size: large;
+            transition: all 0.5s;
+            text-align: center;
+        }
+        .login:hover{
+            border: 5px solid black;
+            box-shadow: 10px 10px 3px  black;
+            transform: translate(0,-20px);
+
+        }
+        marquee{
+            margin-top: 1%;
+            background-color: black;
+            color: white;
+        }
+        h1{
+            text-align: center;
+            color: rgb(109, 85, 85);
+            margin-top: 20px;
+        }
+        input{
+            margin-left: 15px;
+            height: 30px;
+        }
+        .btn{
+            width: 80px;
+            height: 40px;
+            background-color: black; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            transition: all .5s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn a{
+            text-decoration: none;
+            color: white;
+            transition: all .5s;
+        }
+        .btn:hover{
+            transform: translate(0,-10px);
+            box-shadow: 8px 8px 2px black;
+            background-color: white;
+            color: black;
+        }
+       
+        
+        @media screen and (max-width: 500px) {
+            .login{
+                margin-left:auto;
+                margin-right: auto;
+                width: 80%;
+            }
+           
+            
+        }
+
+    </style>
+</head>
+<body>
+    <h1>WELCOME..!!</h1>
+    <marquee onmouseover="stop()" onmouseout="start()"><span>FOR  BUYING  GOOD  AND  QUALITY  PRODUCTS,  CONTACT  US .... </span> </marquee>
+    <div class="login">
+        <form class="contact">
+            <label for="name">NAME:</label>
+            <input id="name" type="text" name="name" placeholder="Enter your name" required><br><br>
+            <label for="email">EMAIL: </label>
+            <input id="email" type="email" name="email" placeholder="Enter your email" required><br><br>
+            <label for="phone ">PHONE: </label>
+           
+            <input id="phone" type="number" name="phone " placeholder="Enter your phone number" required><br><br>
+            <label for="products">PRODUCT TYPE:</label>
+            <input id="products" type="text" name="products" placeholder="Enter material type" required><br><br>
+
+            <label for="count">QUANTITY: </label>
+           
+            <input id="count" type="number" name="count" placeholder="Quantity in pieces" required><br><br>
+            <label for="desc">DESCRIPTION: </label>
+            <input id="desc" type="text"   name="desc" placeholder="Enter if any description"  required><br><br>
+            <button type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    
+    <script>
+        var btn =document.getElementById('btn');
+        btn.addEventListener('click',function(e){
+            e.preventDefault();
+            var name=document.getElementById('name').value;
+            var email=document.getElementById('email').value;
+            var phone=document.getElementById('phone').value;
+            var products=document.getElementById('products').value;
+            var count=document.getElementById('count').value;
+            var desc=document.getElementById('desc').value;
+
+            // var mes=document.getElementById('msg').value;
+            var body='NAME : '+name+'<br/> EMAIL : '+email+'<br/> PHONE: '+phone+'<br/>  PRODUCT TYPE: '+products+'<br/> QUANTITY: '+count+'<br/>  DESCRIPTION: '+desc+'<br/>';
+            console.log(body);
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "dhiwaagarp3112@gmail.com",
+                Password : "F8E8CD8EE04CDC0367C1852C770303B35B94",
+                To : 'dhiwaagarp3112@gmail.com',
+                From : 'dhiwaagarp3112@gmail.com',
+                Subject : "User form",
+                Body : body
+            }).then(
+            message => alert(message)
+            ).catch(err=>console.log(err))});
+        
+    </script>
+</body>
+</html>
