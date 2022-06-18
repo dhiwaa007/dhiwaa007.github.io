@@ -1,9 +1,13 @@
 body {
-  background-color: rgb(130, 240, 240);
-  background-image: linear-gradient(to top left,rgb(129, 215, 219), white);
+  
+  background-image:url("sam4.jpg ");
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
   margin: 0;
   font-family: Arial;
 }
+
 
 .header img{
   height:170px;
@@ -120,12 +124,13 @@ background-size:contain;
 #section-container img{
   width:100%;
   height:55vh;
+  border: solid rgb(15, 222, 184) 5px;
 }
 
 #section-container .columns.content .content-container
 {
-  background-color: #97b2a8;
-  
+  background-color: #54b390;
+  border: solid black 5px;
   padding-bottom:  70px;
 }
 #section-container .columns.content .content-container h5
@@ -211,12 +216,7 @@ margin-left: 10%;
 order:1;
 width:90%;
 }
-/* #section-container .columns.content .content-container
-{
-font-size: 20px;
-padding:20px 35px;
-} 
-*/
+
 #section-container .columns.content .content-container p
 {
   
